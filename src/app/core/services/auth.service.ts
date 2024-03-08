@@ -13,7 +13,7 @@ const AUTH_API = GlobalComponent.AUTH_API;
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  
+
 
 @Injectable({ providedIn: 'root' })
 
@@ -38,7 +38,7 @@ export class AuthenticationService {
      * @param email email
      * @param password password
      */
-    register(email: string, first_name: string, password: string) {        
+    register(email: string, first_name: string, password: string) {
         // return getFirebaseBackend()!.registerUser(email, password).then((response: any) => {
         //     const user = response;
         //     return user;
@@ -88,6 +88,36 @@ export class AuthenticationService {
         );
     }
 
+  //   login(email: string, password: string) {
+  //     // return getFirebaseBackend()!.loginUser(email, password).then((response: any) => {
+  //     //     const user = response;
+  //     //     return user;
+  //     // });
+
+  //     return this.http.post(GlobalComponent.PHP_API, {
+  //     //   {
+  //     //     "accion": "autenticar",
+  //     //     "username": "ADMIN",
+  //     //     "contrasenia": "JCRDb25zdHJ1MjQ=",
+  //     //     "aid": ""
+  //     // }
+  //         accion:'autenticar',
+  //         password: 'JCRDb25zdHJ1MjQ=',
+  //         username: email,
+  //       }, httpOptions).pipe(
+  //           map((response: any) => {
+  //             console.debug('response', response);
+  //             const user = response;
+  //             return user;
+  //         }),
+  //         catchError((error: any) => {
+  //           console.debug('error', error);
+  //             const errorMessage = 'Login failed'; // Customize the error message as needed
+  //             return throwError(errorMessage);
+  //         })
+  //     );
+  // }
+
     /**
      * Returns the current user
      */
@@ -107,7 +137,7 @@ export class AuthenticationService {
         this.currentUserSubject.next(null!);
 
         return of(undefined).pipe(
-        
+
         );
 
     }

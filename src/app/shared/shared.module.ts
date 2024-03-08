@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbNavModule, NgbAccordionModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbNavModule,
+  NgbAccordionModule,
+  NgbDropdownModule,
+} from '@ng-bootstrap/ng-bootstrap';
 
 // Swiper Slider
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -25,7 +29,7 @@ import { FooterComponent } from './landing/index/footer/footer.component';
 import { ScrollspyDirective } from './scrollspy.directive';
 import { LandingScrollspyDirective } from './landingscrollspy.directive';
 
-// NFT Landing 
+// NFT Landing
 import { MarketPlaceComponent } from './landing/nft/market-place/market-place.component';
 import { WalletComponent } from './landing/nft/wallet/wallet.component';
 import { FeaturesComponent } from './landing/nft/features/features.component';
@@ -33,15 +37,14 @@ import { CategoriesComponent } from './landing/nft/categories/categories.compone
 import { DiscoverComponent } from './landing/nft/discover/discover.component';
 import { TopCreatorComponent } from './landing/nft/top-creator/top-creator.component';
 
-// Job Landing 
+// Job Landing
 import { ProcessComponent } from './landing/job/process/process.component';
 import { FindjobsComponent } from './landing/job/findjobs/findjobs.component';
 import { CandidatesComponent } from './landing/job/candidates/candidates.component';
 import { BlogComponent } from './landing/job/blog/blog.component';
 import { JobcategoriesComponent } from './landing/job/jobcategories/jobcategories.component';
 import { JobFooterComponent } from './landing/job/job-footer/job-footer.component';
-
-
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -80,9 +83,38 @@ import { JobFooterComponent } from './landing/job/job-footer/job-footer.componen
     NgbAccordionModule,
     NgbDropdownModule,
     SlickCarouselModule,
-    CountUpModule
+    CountUpModule,
+    DataTablesModule,
   ],
-  exports: [BreadcrumbsComponent, ClientLogoComponent, ServicesComponent, CollectionComponent, CtaComponent, DesignedComponent, PlanComponent, FaqsComponent,LandingScrollspyDirective, ReviewComponent, CounterComponent, WorkProcessComponent, TeamComponent, ContactComponent, FooterComponent, ScrollspyDirective,
-    WalletComponent, MarketPlaceComponent, FeaturesComponent, CategoriesComponent, DiscoverComponent, TopCreatorComponent, ProcessComponent, FindjobsComponent, CandidatesComponent, BlogComponent, JobcategoriesComponent, JobFooterComponent]
+  exports: [
+    BreadcrumbsComponent,
+    ClientLogoComponent,
+    ServicesComponent,
+    CollectionComponent,
+    CtaComponent,
+    DesignedComponent,
+    PlanComponent,
+    FaqsComponent,
+    LandingScrollspyDirective,
+    ReviewComponent,
+    CounterComponent,
+    WorkProcessComponent,
+    TeamComponent,
+    ContactComponent,
+    FooterComponent,
+    ScrollspyDirective,
+    WalletComponent,
+    MarketPlaceComponent,
+    FeaturesComponent,
+    CategoriesComponent,
+    DiscoverComponent,
+    TopCreatorComponent,
+    ProcessComponent,
+    FindjobsComponent,
+    CandidatesComponent,
+    BlogComponent,
+    JobcategoriesComponent,
+    JobFooterComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}
