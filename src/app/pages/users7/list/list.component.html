@@ -1,74 +1,7 @@
 <!-- Start Breadcrumbs -->
 <app-breadcrumbs title="Usuarios" [breadcrumbItems]="breadCrumbItems"></app-breadcrumbs>
 <!-- End Breadcrumbs -->
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header align-items-center d-flex">
-        <h4 class="card-title mb-0 flex-grow-1">Custom Forms</h4>
-      </div><!-- end card header -->
-      <div class="card-body">
-        <p class="text-muted">Input groups include support for custom selects and custom file inputs. Browser
-          default versions of these are not supported.</p>
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <th scope="col">ID</th>
-              <th scope="col">title</th>
-              <th scope="col">price</th>
-              <th scope="col">image</th>
-            </thead>
-            <tbody>
-              @for (item of productsList; track $index) {
-              <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.title }}</td>
-                <td>{{ item.price }}</td>
-                <td>ima</td>
-              </tr>
-              }
-            </tbody>
-          </table>
 
-        </div>
-      </div>
-    </div>
-  </div><!--end col-->
-</div><!--end row-->
-
-
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header align-items-center d-flex">
-        <h4 class="card-title mb-0 flex-grow-1">Datatable</h4>
-      </div><!-- end card header -->
-      <div class="card-body">
-        <p class="text-muted">Users List</p>
-        <table datatable [dtOptions]="dtOptions">
-          <thead>
-            <th scope="col">ID</th>
-            <th scope="col">title</th>
-            <th scope="col">price</th>
-            <th scope="col">image</th>
-          </thead>
-          <tbody>
-            @for (item of productsList; track $index) {
-            <tr>
-              <td>{{ item.id }}</td>
-              <td>{{ item.title }}</td>
-              <td>{{ item.price }}</td>
-              <td>ima</td>
-
-              </tr>
-            }
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-  </div><!--end col-->
-</div><!--end row-->
 
 
 
@@ -78,26 +11,53 @@
       <div class="card-header align-items-center d-flex">
         <h4 class="card-title mb-0 flex-grow-1">Datatable Official Docs</h4>
       </div><!-- end card header -->
-      <div class="card-body">
+      <div class="card-body" *ngIf="dataLoaded"> <!-- Mostramos la tabla solo cuando los datos estén cargados -->
         <table datatable [dtOptions]="dtOptions" class="row-border hover">
           <thead>
             <tr>
               <th>ID</th>
               <th>First name</th>
               <th>Last name</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            @for (item of productsList; track $index) {
+            @for(data of productsList;track $index){
             <tr>
-              <td>{{ item.id }}</td>
-              <td>{{ item.title }}</td>
-              <td>{{ item.price }}</td>
+              <td>{{ data.id }}</td>
+              <td>{{ data.title }}</td>
+              <td>{{ data.price }}</td>
+              <td>
+                <div class="dropdown" ngbDropdown>
+                  <button class="btn btn-soft-secondary btn-sm dropdown arrow-none" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                    <i class="ri-more-fill align-middle"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                    <!-- <li><a class="dropdown-item" routerLink="/invoices/details"><i
+                          class="ri-eye-fill align-bottom me-2 text-muted"></i>
+                        View</a></li> -->
+                    <li>
+                      <a class="dropdown-item" routerLink="/users/details/{{data.id}}">
+                        <i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a>
+                    </li>
+                    <li><a class="dropdown-item" href="javascript:void(0);"><i
+                          class="ri-download-2-line align-bottom me-2 text-muted"></i>
+                        Download</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                      <a class="dropdown-item remove-item-btn" data-bs-toggle="modal">
+                        <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
+                        Delete
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </td>
             </tr>
             }
           </tbody>
         </table>
-
       </div>
     </div>
   </div><!--end col-->

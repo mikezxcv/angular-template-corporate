@@ -5,11 +5,21 @@ import { defineElement } from '@lordicon/element';
 import lottie from 'lottie-web';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ListComponent } from './list/list.component';
+import { DetailsComponent } from './details/details.component';
 import { DataTablesModule } from 'angular-datatables';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ListComponent],
-  imports: [CommonModule, UserRoutingModule, SharedModule, DataTablesModule],
+  declarations: [ListComponent, DetailsComponent],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    DataTablesModule,
+    NgbDropdownModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class Users7Module {
   constructor() {

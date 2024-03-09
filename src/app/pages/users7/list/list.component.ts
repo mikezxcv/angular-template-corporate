@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
     pageLength: 5,
     ordering: false,
   };
+  dataLoaded: boolean = false;
 
   constructor(private readonly user7Service: User7Service) {}
 
@@ -30,6 +31,7 @@ export class ListComponent implements OnInit {
     this.user7Service.findAllProducts().subscribe((response) => {
       console.debug(response);
       this.productsList = response;
+      this.dataLoaded = true; // Marcamos que los datos han sido cargados
     });
   }
 }

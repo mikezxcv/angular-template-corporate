@@ -20,4 +20,13 @@ export class User7Service {
       })
     );
   }
+
+  public finOneProduct(id: number): Observable<FindAllProducts> {
+    return this.httpService.get(GlobalComponent.API + '/products/' + id).pipe(
+      map((response: any) => {
+        console.debug('response', response);
+        return response;
+      })
+    );
+  }
 }
