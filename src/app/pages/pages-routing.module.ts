@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListComponent } from './users7/list/list.component';
+import { ListComponent } from './comments/list/list.component';
+import { CommentsRoutingModule } from './comments/comments-routing.module';
 // Component pages
 
 const routes: Routes = [
@@ -13,6 +14,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./users7/users7.module').then((m) => m.Users7Module),
   },
+  {
+    path: 'comments',
+    loadChildren: () =>
+      import('./comments/comments.module').then((m) => m.CommentsModule),
+  }
 ];
 
 @NgModule({

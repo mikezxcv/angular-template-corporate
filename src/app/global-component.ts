@@ -10,6 +10,7 @@ export const GlobalComponent = {
     'http://localhost/cs-main/main/code/controllers/usuarioController.php',
   // AUTH_API:"http://127.0.0.1:3000/auth/",
   API: 'https://fakestoreapi.com',
+  DUMMY_JSON_API: 'https://dummyjson.com',
   // Products Api
   product: 'apps/product',
   productDelete: 'apps/product/',

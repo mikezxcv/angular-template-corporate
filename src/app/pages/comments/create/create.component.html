@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">Comments</h4>
+      </div><!-- end card header -->
+      <div class="card-body">
+        <form [formGroup]="formGroup" (ngSubmit)="saveComment()">
+          <br>
+          <div class="row">
+            <div class="col-sm">
+              <label for="form-label">Users</label>
+              <select class="form-select" formControlName="userId">
+                @for (item of usersList; track $index) {
+                <option value="{{ item.id }}">{{ item.lastName }} {{item.maidenName}}</option>
+                }
+              </select>
+            </div>
+            <div class="col-sm">
+              <label for="form-label">Posts</label>
+              <select class="form-select" formControlName="postId">
+                @for (item of postsList; track $index) {
+                <option value="{{ item.id }}">{{ item.title }} </option>
+                }
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div>
+                <label for="iconInput" class="form-label">Description</label>
+                <div>
+                  <textarea name="" id="" cols="30" rows="4" class="form-control" formControlName="body"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <!-- [disabled]="!formGroup.valid" -->
+            <button type="sumbit" class="btn btn-success">
+              <i class="ri-add-line me-2"></i>
+              <span>Guardar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div><!--end col-->
+</div><!--end row-->
