@@ -24,9 +24,7 @@ export class CommentsService {
       );
   }
 
-  public saveComment(
-    comment: any
-  ): Observable<findAllCommentsInterface> {
+  public saveComment(comment: any): Observable<findAllCommentsInterface> {
     return this.httpService
       .post(GlobalComponent.DUMMY_JSON_API + '/comments/add', comment)
       .pipe(

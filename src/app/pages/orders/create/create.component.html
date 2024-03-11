@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">Comments</h4>
+      </div><!-- end card header -->
+      <form [formGroup]="formGroup" (ngSubmit)="saveOrder()">
+        <div class="card-body">
+          <br>
+          <div class="row">
+            <div class="col-sm">
+              <label for="form-label">Clients</label>
+              <select class="form-select" formControlName="clientId">
+                @for (item of clientsList; track $index) {
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                }
+              </select>
+            </div>
+            <div class="col-sm">
+              <label for="form-label">Locations</label>
+              <select class="form-select" formControlName="locationId">
+                @for (item of locationsList; track $index) {
+                <option value="{{ item.id }}">{{ item.name }} </option>
+                }
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm">
+              <div>
+                <label for="iconInput" class="form-label">Description</label>
+                <div>
+                  <textarea name="" id="" cols="30" rows="4" class="form-control" formControlName="comments"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div>
+                <label for="iconInput" class="form-label">Date</label>
+                <div>
+                  <input type="date" class="form-control" formControlName="date">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div>
+                <label for="iconInput" class="form-label">Time</label>
+                <div>
+                  <input type="time" class="form-control" formControlName="hour">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm">
+              <label for="form-label">Products</label>
+              <select class="form-select" formControlName="productId">
+                @for (item of productsList; track $index) {
+                <option value="{{ item.id }}">{{ item.name }}</option>
+                }
+              </select>
+            </div>
+            <div class="col-sm">
+              <label for="form-label">Quantity</label>
+              <input type="number" class="form-control" formControlName="quantity">
+            </div>
+            <div class="col-sm">
+              <label for="form-label">Price</label>
+              <input type="number" class="form-control" formControlName="price">
+            </div>
+            <div class="col-sm-2">
+              <label for="form-label">Registrar</label>
+              <button class="btn btn-secondary" [disabled]="this.formGroup.get('productId')?.value === '' && this.formGroup.get('quantity')?.value === '' && this.formGroup.get('price')?.value === ''"
+                (click)="addProduct(this.formGroup.get('productId')?.value)">Click Me</button>
+              <!-- <input type="number" class="form-control" formControlName="quantity"> -->
+
+            </div>
+          </div>
+          <br>
+          <br>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of productsSelected; track $index) {
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.quantity * item.price }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="removeProduct(item.id)">
+                    <i class="ri-delete-bin-line"></i>
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+          <div class="card-footer">
+            <!-- [disabled]="!formGroup.valid" -->
+            <button type="sumbit" class="btn btn-success">
+              <i class="ri-add-line me-2"></i>
+              <span>Guardar</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div><!--end col-->
+</div><!--end row-->

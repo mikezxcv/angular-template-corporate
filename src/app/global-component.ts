@@ -21,4 +21,6 @@ export const GlobalComponent = {
 
   // Customers Api
   customer: 'apps/customer',
+
+  FAKE_API_BEECEPTOR: 'https://fake-store-api.mock.beeceptor.com',
 };
